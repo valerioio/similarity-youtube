@@ -2,21 +2,21 @@
 
 import { FC, useState } from "react";
 import Button from "@/components/ui/Button";
-import { signIn } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
-interface SignInButtonProps {}
+interface SignOutButtonProps {}
 
-const SignInButton: FC<SignInButtonProps> = ({}) => {
+const SignOutButton: FC<SignOutButtonProps> = ({}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const signInWithGoogle = async () => {
+  const signOutWithGoogle = async () => {
     setIsLoading(true);
 
     try {
-      await signIn("google");
+      await signOut();
     } catch (error) {
       toast({
-        title: "Error signing in",
+        title: "Error signing out",
         message: "Please try again later",
         type: "error",
       });
@@ -24,10 +24,10 @@ const SignInButton: FC<SignInButtonProps> = ({}) => {
   };
 
   return (
-    <Button onClick={signInWithGoogle} isLoading={isLoading}>
-      Sign In
+    <Button onClick={signOutWithGoogle} isLoading={isLoading}>
+      Sign Out
     </Button>
   );
 };
 
-export default SignInButton;
+export default SignOutButton;
