@@ -3,6 +3,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/Button";
 import SignInButton from "@/components/ui/SignInButton";
 import SignOutButton from "@/components/ui/SignOutButton";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = async ({}) => {
   const session = await getServerSession();
